@@ -40,8 +40,6 @@ const login = async ({ username, password }) => {
     return token;
 };
 
-
-
 module.exports = {
     register,
     login,
