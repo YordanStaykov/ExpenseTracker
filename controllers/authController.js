@@ -32,7 +32,7 @@ router.post(
 		"password",
 		"The password should be consisted of only latin letters and digits"
 	).isAlphanumeric(),
-	async (req, res) => {
+	expressAsyncHandler(async (req, res) => {
 		if (!validationResult(req).isEmpty()) {
 			return res.render("user/register", {
 				error: { message: validationResult(req).errors[0].msg },
@@ -47,7 +47,7 @@ router.post(
 		} catch (error) {
 			res.render("user/register", { error });
 		}
-	}
+	})
 );
 
 // LOGIN
