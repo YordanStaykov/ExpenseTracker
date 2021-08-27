@@ -8,14 +8,15 @@ async function setupMongoose() {
 			useUnifiedTopology: true,
 			useCreateIndex: true,
 		});
+		console.log("Server connected to MongoDB");
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 
-	const db = mongoose.connection;
+	// const db = mongoose.connection;
 
-	db.on("error", console.error.bind(console, "connection error:"));
-	db.once("open", console.log.bind(console, "Db Connected!"));
+	// db.on("error", console.error.bind(console, "connection error:"));
+	// db.once("open", console.log.bind(console, "Db Connected!"));
 }
 
 module.exports = setupMongoose;
