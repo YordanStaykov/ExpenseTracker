@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const authService = require("../services/authService");
-
+const expressAsyncHandler = require("express-async-handler");
 const isGuest = require("../middlewares/isGuest");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 
