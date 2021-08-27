@@ -15,7 +15,7 @@ const register = async ({ username, password, repeatPassword, amount }) => {
 		throw { message: "Amount can't be less than 0!" };
 	}
 
-	let salt = await bcrypt.genSalt(process.env.SALT_ROUNDS);
+	let salt = await bcrypt.genSalt(Number(process.env.SALT_ROUNDS));
 	let hash = await bcrypt.hash(password, salt);
 
 	const user = new User({ username, password: hash, amount });
