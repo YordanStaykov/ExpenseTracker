@@ -1,5 +1,5 @@
 //Configure the ports and DB connections
-const config = require("./config");
+require("dotenv").config();
 
 //Express Setup
 const express = require("express");
@@ -13,6 +13,8 @@ require("./config/mongoose")();
 const routes = require("./routes");
 app.use(routes);
 
-app.listen(config.PORT || 5000, () =>
-	console.log(`Server is running on port http://localhost:${config.PORT}...`)
+app.listen(process.env.PORT || 5000, () =>
+	console.log(
+		`Server is running on port http://localhost:${process.env.PORT}...`
+	)
 );
